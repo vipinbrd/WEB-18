@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <div id="container">
+        <div> <a href="backend.html">Backend</a></div>
+        <div><a href="fronted.html">Fronted</a></div>
+        <div><a href="navbar.html">Navbar</a></div>
+     </div>
+    <form>
+        <input id="name" type="text" placeholder="enter your name" />
+        <input id="img" type="text"placeholder="enter your imgUrl"/>
+        <input id="company" type="text"placeholder=" enter your compnylogo"/>
+        <input  id="role"type="text"placeholder="enter yuor role in company"/>
+        <input type="submit" value="submit"/>
+    </form>
+</body>
+</html>
+<script>
+    investorArr=JSON.parse(localStorage.getItem("investorsData"))||[]
+    document.querySelector("form").addEventListener("submit",myfunc)
+    function myfunc(){
+        event.preventDefault()
+ var name=document.querySelector("#name").value
+ var image=document.querySelector("#img").value
+ var company=document.querySelector("#company").value
+ var role=document.querySelector("#role").value
+//  console.log(name,image,company,role)
+ var obj={
+name:name,
+image:image,
+company:company,
+role:role
+
+ }
+ investorArr.push(obj)
+localStorage.setItem("investorsData",JSON.stringify(investorArr))
+window.location.href="fronted.html"
+
+    }
+
+
+
+</script>
